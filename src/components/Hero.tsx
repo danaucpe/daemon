@@ -8,7 +8,7 @@ export function Hero() {
   useEffect(() => {
     async function fetchLocation() {
       try {
-        const response = await fetch('https://mcp.daemon.danielmiessler.com', {
+        const response = await fetch('https://mcp.daemon.danaucpe.org', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -23,7 +23,7 @@ export function Hero() {
           setLocation(data.result.content[0].text);
         }
       } catch {
-        setLocation('Bay Area');
+        setLocation('Seattle area');
       }
     }
     fetchLocation();
@@ -55,18 +55,16 @@ export function Hero() {
           className="font-heading text-lg text-text-secondary mb-3"
         >
           Personal MCP API for{' '}
-          <a href="https://danielmiessler.com" className="text-brand hover:underline">
-            Daniel Miessler
-          </a>
+          <span className="text-brand">Daniel Black</span>
         </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="font-body text-lg text-text-secondary max-w-2xl mx-auto mb-5"
+          className="font-display text-2xl sm:text-3xl text-text-primary max-w-2xl mx-auto mb-5"
         >
-          My vision of the future where technology's primary role is to enable human connection. Daemons are live views into what a person is doing and what they care about for the purpose of connecting with others with similar interests.
+          <span className="text-brand">Faith</span> · Family · Code
         </motion.p>
 
         {/* Location */}

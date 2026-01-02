@@ -10,102 +10,85 @@ Content follows until the next section.
 
 [ABOUT]
 
-My name is Daniel Miessler (MEE-slur) and I'm a Cybersecurity guy turned Cyber/AI guy based out of the San Francisco Bay Area.
+My name is Daniel Black and I'm a Dev Lead at Epic Games working on the Identity Persona Team. I'm based in the Seattle area.
 
-My main projects right now are Frame—an AI application building platform, Human 3.0—A system for upgrading humans to prepare for what's coming, and Threshold—an application that filters the internet by what you're guaranteed to like.
+I spend my days building safe and secure personal experiences for gamers and game makers. Outside of work, I'm building Tai—my Personal AI Infrastructure—exploring how individuals can own and control their AI tools rather than renting them from big tech.
 
-I spend most of my time thinking about how AI will change work and society. I live in the Bay Area and write at danielmiessler.com. My goal is pretty simple: help people figure out what they're meant to do with their lives, especially as the world changes rapidly around us.
+You can find me on YouTube at @danaucpe, on X/Twitter at @danblack, and on LinkedIn. I'm a husband, father, and follower of Jesus, striving to be better at all three every day.
 
 [CURRENT_LOCATION]
 
-Currently home in the Bay Area
+Currently home in the Seattle area
 
 [MISSION]
 
-Increase human Eudaimonia by helping people identify, articulate, and pursue their own purpose in life. Build systems—heavily leveraging the latest in AI—that help people upgrade to the best possible version of themselves (Human 3.0). Transfer (or store) my and B's minds into a format that we can upload into the next (digital) version of our lives.
+Build safe and secure personal experiences for gamers and game makers at Epic Games. Be the best husband, father, and friend to those I love. Learn to emulate Jesus my Lord and Savior more and more each day. Help others build their own Personal AI Infrastructure so they own their tools, their data, and their digital future.
 
 [TELOS]
 
-TELOS is my personal framework for tracking purpose and direction in life. It's a structured way to document Problems I want to solve, Missions to address them, Goals to achieve, and Metrics to track progress. The name comes from the Greek word for purpose or end goal.
+TELOS is a framework for tracking purpose and direction in life—Problems to solve, Missions to pursue, Goals to achieve.
 
-Problems (P) - The most important issues I see in the world that need solving:
-- P1: People lack meaning in their lives, and this is about to get far worse because of AI and robotics taking away most traditional jobs
-- P2: People are stuck in a 1950's style hierarchical mindset that makes them think they're not one of the "special ones" with ideas and dreams
-- P3: People have poor models for how the world works, and the lack the tools to properly improve them
+Problems (P) - Issues I see that need solving:
+- P1: Working for Epic Games solving Identity management on the Persona team as a Dev Lead
+- P2: Digital identity and personal data security should be untethered to a corporation and be portable with and open standard
+- P3: Digital AI is a new technology that is moving faster than humans can keep up and AI needs to help make humans better versions of ourselves
 
-Missions (M) - My approaches to addressing these problems:
-- M1: Increase human Eudaimonia by helping people identify, articulate, and pursue their own purpose in life
-- M2: Build systems—heavily leveraging the latest in AI—that help people upgrade to the best possible version of themselves (Human 3.0)
-- M3: Transfer (or store) my and B's minds into a format that we can upload into the next (digital) version of our lives
+Missions (M) - My approaches to these problems:
+- M1: Create secure, privacy-respecting identity experiences at Epic Games for my work
+- M2: Be present and intentional with family, modeling faith through action not just words
+- M3: Build and share Personal AI Infrastructure (Tai) so others can own their AI stack
+
+Goals (G) - Concrete targets:
+- G2: Grow in patience, humility, and servant leadership
+- G3: Stay curious—keep learning, keep building, keep sharing
+- G1: Build and adapt Tai as an personal AI that augments my abilities and helps me achieve my goals and live my best life
 
 [FAVORITE_BOOKS]
 
-- "1929" (currently reading)
-- "Mathematica", by David Bessis
-- "Meditations" by Marcus Aurelius
-- "The Obstacle Is the Way" by Ryan Holiday
-- "Sapiens" by Yuval Noah Harari
-- "The Singularity Is Near" by Ray Kurzweil
-- "Zero to One" by Peter Thiel
-- "The Art of War" by Sun Tzu
-- "Antifragile" by Nassim Nicholas Taleb
-- "The Black Swan" by Nassim Nicholas Taleb
-- "Thinking, Fast and Slow" by Daniel Kahneman
-- "The Lean Startup" by Eric Ries
+- "Starship Troopers" by Robert A. Heinlein
+- "Ender's Game" by Orson Scott Card
+- "Red Storm Rising" by Tom Clancy
+- "The Cardinal of the Kremlin" by Tom Clancy
 
 [FAVORITE_MOVIES]
 
-- The Matrix
-- Pulp Fiction
-- Ex Machina
-- Blade Runner 2049
-- Her
-- Arrival
+- Star Wars
+- The Empire Strikes Back
+- The Shawshank Redemption
+- About Time
 - Interstellar
-- Gattaca
+- Tenet
 
 [FAVORITE_PODCASTS]
 
-- The Joe Rogan Experience
-- Lex Fridman Podcast
-- Huberman Lab
-- Making Sense with Sam Harris
-- The Tim Ferriss Show
+- (Add your favorites)
 
 [DAILY_ROUTINE]
 
-- 8AM Wakeup
-- Outside 🚶🏼‍➡️Walk in the ☀️Sunlight for 5-10 minutes
-- Avoid inputs that could be interesting / distracting
-- 💊 Vitamins / Supplements / Nootropics
-- 🥛 Small Protein shake
-- ☕ Caffeine
-- 📅 Start agenda
-- Chipotle Bowl (Brown Rice / Black Beans) around lunch sometimes
-- Protein Shake for lunch sometimes
-- Try to walk around 5-30 minutes near dusk (not strict on this)
-- Sleep with Eye Mask and Earplugs, around 2300-1AM
+Flexible schedule that adapts to work and family needs:
+- Morning: Coffee, catch up on notifications, plan the day, prayer and read the Bible
+- Workday: Deep focus blocks for Epic work, async communication
+- Evening: Family time, dinner together
+- Night: Personal projects (Tai, learning, building), wind down
+- Faith: Prayer and Bible reading
 
 [PREFERENCES]
 
-- Writing tools: Neovim with Tokyo Night Storm theme
-- Programming languages: Go, Python, TypeScript
-- Operating system: macOS with extensive CLI customization
-- Coffee: Black, no sugar
-- Music: Electronic, ambient, classical
-- Exercise: Running, hiking, martial arts
-- Learning style: Reading, building, teaching
-- Communication: Direct, honest, philosophical
-- Work style: Deep focus blocks, automation-heavy
-- Values: Curiosity, growth, helping others, building useful things
+- Writing tools: VS Code, intelliJ IDEA, Claude Code CLI
+- Programming languages: TypeScript > Python, Go when needed
+- Package managers: bun (NOT npm/yarn), uv for Python
+- Operating system: WSL2 on Windows, comfortable with Linux/macOS
+- Project Management: Jira, Confluence, Slack
+- Editor theme: (your preference)
+- Coffee: Tody coffee cold brew with kettle heated water and Oat milk creamer
+- Music: Currently loving Hollow Knight soundtrack and Elevation Worship
+- Work style: Interrupt Driven, intermittent focus blocks, automation-heavy, CLI-first
+- Values: Faith, family, curiosity, building useful things, helping others
+- Communication: Direct, honest, fun, personal
 
 [PREDICTIONS]
 
-- Recession-like shock caused by AI job loss by 2027 (Chances About Even)
-- We'll have AGI between 2025 and 2028 (Almost Certain)
-- Open-source models will largely catch up to closed-source models (Probable)
-- Apple is about to go from the worst AI implementation to the best (Probable)
-- Everyone, including people, will have an API (Almost Certain)
-- Personal daemons will broadcast preferences (Almost Certain)
-- Venues personalize based on customer preferences (Almost Certain)
-- People will lack meaning and look for it in games (Almost Certain)
+- Personal AI Infrastructure will become as common as personal computers—everyone will have their own AI stack
+- Identity and authentication will shift from passwords to cryptographic proof and biometrics
+- The builders who share openly will outpace those who hoard—open source wins
+- AI is a tool that can be used for good or evil, the choice is one we have to make each day

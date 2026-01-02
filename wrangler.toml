@@ -1,4 +1,4 @@
-name = "daemon"
+name = "daniel-black-daemon"
 main = "src/worker.ts"
 compatibility_date = "2025-08-20"
 workers_dev = true
@@ -9,10 +9,8 @@ enabled = false
 [observability.logs]
 enabled = false
 
-# Custom domain route
-routes = [
-  { pattern = "daemon.danielmiessler.com", custom_domain = true }
-]
+# Using workers.dev subdomain for now
+# Add custom domain later: routes = [{ pattern = "daemon.danielblack.com", custom_domain = true }]
 
 [site]
 bucket = "./dist"

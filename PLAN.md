@@ -35,7 +35,7 @@ What a friend or follower wants to know:
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │ 📍 LOCATION                                                   │
-│ San Francisco Bay Area                                        │
+│Seattle Area                                        │
 │ (Home base)                                                   │
 └──────────────────────────────────────────────────────────────┘
 ```
