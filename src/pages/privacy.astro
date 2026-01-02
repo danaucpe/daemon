@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const effectiveDate = "January 2, 2026";
+---
+
+<Layout title="Privacy Policy | Daniel Black Applications" description="Privacy policy for applications by Daniel Black">
+  <main class="relative z-10 min-h-screen">
+    <div class="max-w-3xl mx-auto px-6 py-16">
+      <header class="mb-12">
+        <h1 class="font-display text-4xl md:text-5xl text-brand mb-4">Privacy Policy</h1>
+        <p class="text-text-secondary">Effective Date: {effectiveDate}</p>
+        <p class="text-text-tertiary mt-2">Applications by Daniel Black (danaucpe.org)</p>
+      </header>
+
+      <article class="prose prose-invert max-w-none space-y-8">
+
+        <section class="bg-bg-secondary/50 rounded-xl p-6 border border-border-subtle">
+          <h2 class="font-heading text-2xl text-text-primary mb-4">Overview</h2>
+          <div class="p-4 bg-warning/10 border border-warning/30 rounded-lg mb-4">
+            <p class="text-warning font-heading mb-2">Black Family Use Only</p>
+            <p class="text-text-secondary">
+              These applications are strictly for use by Daniel Black and members of the Black household.
+              They are NOT public services and do not accept external users or account connections.
+            </p>
+          </div>
+          <p class="text-text-secondary leading-relaxed">
+            This privacy policy applies exclusively to personal applications developed by Daniel Black
+            for private family use. These tools integrate with health and wellness services (such as
+            Oura Ring) to provide personal insights. No data is shared with, sold to, or accessible
+            by any third parties under any circumstances.
+          </p>
+        </section>
+
+        <section class="bg-bg-secondary/50 rounded-xl p-6 border border-border-subtle">
+          <h2 class="font-heading text-2xl text-text-primary mb-4">Data Access</h2>
+          <p class="text-text-secondary leading-relaxed mb-4">
+            Applications may access data through official APIs using OAuth 2.0 authentication with read-only permissions where applicable. Data accessed may include:
+          </p>
+          <ul class="list-disc list-inside text-text-secondary space-y-2 ml-4">
+            <li>Health and wellness metrics (sleep, activity, heart rate, readiness scores)</li>
+            <li>Basic account identifiers (email, user ID)</li>
+            <li>Summary statistics and trends</li>
+          </ul>
+          <p class="text-text-tertiary mt-4 text-sm">
+            No GPS location data, payment information, or sensitive credentials are collected.
+          </p>
+        </section>
+
+        <section class="bg-bg-secondary/50 rounded-xl p-6 border border-border-subtle">
+          <h2 class="font-heading text-2xl text-text-primary mb-4">Purpose of Use</h2>
+          <p class="text-text-secondary leading-relaxed">
+            Data is used exclusively for personal wellness insights, trend analysis, and integration
+            with personal AI assistants and productivity tools.
+          </p>
+          <div class="mt-4 p-4 bg-bg-tertiary rounded-lg border border-border-subtle">
+            <p class="text-brand font-heading">
+              No data is sold, shared with third parties, or used for marketing purposes.
+            </p>
+          </div>
+        </section>
+
+        <section class="bg-bg-secondary/50 rounded-xl p-6 border border-border-subtle">
+          <h2 class="font-heading text-2xl text-text-primary mb-4">Storage & Retention</h2>
+          <ul class="list-disc list-inside text-text-secondary space-y-2 ml-4">
+            <li>Data is stored locally or in private, encrypted storage systems</li>
+            <li>Aggregated summaries may be retained for trend analysis</li>
+            <li>Raw data is typically retained for 30-90 days unless otherwise specified</li>
+            <li>Black family members may request deletion of their data at any time</li>
+          </ul>
+        </section>
+
+        <section class="bg-bg-secondary/50 rounded-xl p-6 border border-border-subtle">
+          <h2 class="font-heading text-2xl text-text-primary mb-4">Security</h2>
+          <ul class="list-disc list-inside text-text-secondary space-y-2 ml-4">
+            <li>All API communications use encrypted OAuth 2.0 channels</li>
+            <li>No passwords or authentication credentials are stored</li>
+            <li>Access tokens are securely managed and can be revoked at any time</li>
+          </ul>
+        </section>
+
+        <section class="bg-bg-secondary/50 rounded-xl p-6 border border-border-subtle">
+          <h2 class="font-heading text-2xl text-text-primary mb-4">Family Member Rights</h2>
+          <p class="text-text-secondary leading-relaxed mb-4">
+            Black family members may revoke access to their data at any time by:
+          </p>
+          <ul class="list-disc list-inside text-text-secondary space-y-2 ml-4">
+            <li>Revoking app permissions through the connected service's settings (e.g., Oura app)</li>
+            <li>Contacting Daniel directly to request data deletion</li>
+          </ul>
+        </section>
+
+        <section class="bg-bg-secondary/50 rounded-xl p-6 border border-border-subtle">
+          <h2 class="font-heading text-2xl text-text-primary mb-4">Contact</h2>
+          <p class="text-text-secondary leading-relaxed">
+            For questions about this privacy policy or to request data deletion, contact Daniel Black:
+          </p>
+          <p class="mt-4">
+            <a href="https://x.com/danblack" class="text-brand hover:text-brand-light transition-colors">
+              @danblack on X/Twitter
+            </a>
+          </p>
+        </section>
+
+        <section class="bg-bg-secondary/50 rounded-xl p-6 border border-border-subtle">
+          <h2 class="font-heading text-2xl text-text-primary mb-4">Changes to This Policy</h2>
+          <p class="text-text-secondary leading-relaxed">
+            This privacy policy may be updated from time to time. The effective date at the top
+            of this page indicates when the policy was last revised.
+          </p>
+        </section>
+
+      </article>
+
+      <footer class="mt-12 pt-8 border-t border-border-subtle">
+        <a href="/" class="text-brand hover:text-brand-light transition-colors font-heading">
+          ← Back to Daemon
+        </a>
+      </footer>
+    </div>
+  </main>
+</Layout>

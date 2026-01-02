@@ -1,0 +1,196 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="OAuth Callback | Daniel Black Applications" description="OAuth authorization callback handler">
+  <main class="relative z-10 min-h-screen flex items-center justify-center">
+    <div class="max-w-xl mx-auto px-6 py-16 text-center">
+
+      <div id="loading" class="space-y-6">
+        <div class="w-16 h-16 mx-auto border-4 border-brand/30 border-t-brand rounded-full animate-spin"></div>
+        <p class="text-text-secondary font-heading text-lg">Processing authorization...</p>
+      </div>
+
+      <div id="success" class="hidden space-y-8">
+        <div class="w-20 h-20 mx-auto bg-success/20 rounded-full flex items-center justify-center">
+          <svg class="w-10 h-10 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <div>
+          <h1 class="font-display text-3xl md:text-4xl text-brand mb-4">Authorization Successful</h1>
+          <p class="text-text-secondary">Your application has been authorized.</p>
+        </div>
+
+        <div id="code-section" class="hidden bg-bg-secondary/50 rounded-xl p-6 border border-border-subtle text-left">
+          <p class="text-text-tertiary text-sm mb-2 font-heading">Authorization Code:</p>
+          <div class="flex items-center gap-2">
+            <code id="auth-code" class="flex-1 bg-bg-tertiary px-4 py-2 rounded text-brand font-mono text-sm break-all"></code>
+            <button
+              id="copy-btn"
+              class="px-4 py-2 bg-brand/20 hover:bg-brand/30 text-brand rounded transition-colors font-heading text-sm"
+            >
+              Copy
+            </button>
+          </div>
+          <p id="copy-feedback" class="text-success text-sm mt-2 hidden">Copied to clipboard!</p>
+        </div>
+
+        <div id="state-section" class="hidden bg-bg-secondary/50 rounded-xl p-4 border border-border-subtle text-left">
+          <p class="text-text-tertiary text-sm mb-2 font-heading">State:</p>
+          <code id="auth-state" class="text-text-secondary font-mono text-sm"></code>
+        </div>
+
+        <div id="scope-section" class="hidden bg-bg-secondary/50 rounded-xl p-4 border border-border-subtle text-left">
+          <p class="text-text-tertiary text-sm mb-2 font-heading">Scopes Granted:</p>
+          <code id="auth-scope" class="text-text-secondary font-mono text-sm"></code>
+        </div>
+
+        <p class="text-text-tertiary text-sm">
+          You may close this window or return to your application.
+        </p>
+      </div>
+
+      <div id="error" class="hidden space-y-8">
+        <div class="w-20 h-20 mx-auto bg-error/20 rounded-full flex items-center justify-center">
+          <svg class="w-10 h-10 text-error" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </div>
+        <div>
+          <h1 class="font-display text-3xl md:text-4xl text-error mb-4">Authorization Failed</h1>
+          <p id="error-message" class="text-text-secondary"></p>
+        </div>
+        <div id="error-details" class="hidden bg-bg-secondary/50 rounded-xl p-6 border border-error/30 text-left">
+          <p class="text-text-tertiary text-sm mb-2 font-heading">Error Details:</p>
+          <code id="error-code" class="text-error font-mono text-sm"></code>
+        </div>
+      </div>
+
+      <footer class="mt-12 pt-8 border-t border-border-subtle">
+        <a href="/" class="text-brand hover:text-brand-light transition-colors font-heading">
+          ← Back to Daemon
+        </a>
+      </footer>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // SECURITY: Parse URL parameters and immediately clear from browser history
+  const params = new URLSearchParams(window.location.search);
+
+  // Extract values BEFORE clearing URL
+  const code = params.get('code');
+  const state = params.get('state');
+  const scope = params.get('scope');
+  const error = params.get('error');
+  const errorDescription = params.get('error_description');
+
+  // SECURITY: Immediately clear sensitive data from URL to prevent:
+  // - Referrer leakage if user clicks any link
+  // - Browser history exposure
+  // - Screen capture/shoulder surfing
+  if (code || error || state) {
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+
+  // SECURITY: Reject implicit flow tokens in hash (less secure than auth code flow)
+  const hash = window.location.hash;
+  if (hash && hash.includes('access_token')) {
+    console.error('SECURITY: Implicit flow tokens rejected. Use authorization code flow only.');
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+
+  const loadingEl = document.getElementById('loading');
+  const successEl = document.getElementById('success');
+  const errorEl = document.getElementById('error');
+
+  setTimeout(() => {
+    loadingEl?.classList.add('hidden');
+
+    if (error) {
+      // Show error (sanitized - don't expose raw error descriptions from third parties)
+      errorEl?.classList.remove('hidden');
+      const errorMessageEl = document.getElementById('error-message');
+      const errorDetailsEl = document.getElementById('error-details');
+      const errorCodeEl = document.getElementById('error-code');
+
+      if (errorMessageEl) {
+        // Provide generic message instead of potentially sensitive error descriptions
+        errorMessageEl.textContent = 'The authorization was denied or an error occurred.';
+      }
+      if (error && errorDetailsEl && errorCodeEl) {
+        errorDetailsEl.classList.remove('hidden');
+        // Only show sanitized error codes, not full descriptions
+        errorCodeEl.textContent = error.replace(/[^a-zA-Z0-9_-]/g, '');
+      }
+    } else if (code) {
+      // Show success - authorization code flow only
+      successEl?.classList.remove('hidden');
+
+      const codeSection = document.getElementById('code-section');
+      const authCodeEl = document.getElementById('auth-code');
+      if (codeSection && authCodeEl) {
+        codeSection.classList.remove('hidden');
+        authCodeEl.textContent = code;
+      }
+
+      // Show state if present (for CSRF verification reference)
+      if (state) {
+        const stateSection = document.getElementById('state-section');
+        const authStateEl = document.getElementById('auth-state');
+        if (stateSection && authStateEl) {
+          stateSection.classList.remove('hidden');
+          authStateEl.textContent = state;
+        }
+      }
+
+      // Show scope if present
+      if (scope) {
+        const scopeSection = document.getElementById('scope-section');
+        const authScopeEl = document.getElementById('auth-scope');
+        if (scopeSection && authScopeEl) {
+          scopeSection.classList.remove('hidden');
+          authScopeEl.textContent = scope;
+        }
+      }
+
+      // Copy button functionality
+      const copyBtn = document.getElementById('copy-btn');
+      const copyFeedback = document.getElementById('copy-feedback');
+
+      copyBtn?.addEventListener('click', async () => {
+        const textToCopy = authCodeEl?.textContent || '';
+        try {
+          await navigator.clipboard.writeText(textToCopy);
+          copyFeedback?.classList.remove('hidden');
+          setTimeout(() => {
+            copyFeedback?.classList.add('hidden');
+          }, 2000);
+        } catch (err) {
+          // Fallback for older browsers
+          const textArea = document.createElement('textarea');
+          textArea.value = textToCopy;
+          textArea.style.position = 'fixed';
+          textArea.style.opacity = '0';
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          copyFeedback?.classList.remove('hidden');
+          setTimeout(() => {
+            copyFeedback?.classList.add('hidden');
+          }, 2000);
+        }
+      });
+    } else {
+      // No code or error - show generic message for Black family use
+      successEl?.classList.remove('hidden');
+      const h1 = successEl?.querySelector('h1');
+      const p = successEl?.querySelector('p');
+      if (h1) h1.textContent = 'OAuth Callback';
+      if (p) p.textContent = 'This page handles OAuth redirects for Black family applications.';
+    }
+  }, 500);
+</script>
